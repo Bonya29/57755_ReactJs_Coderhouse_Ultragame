@@ -1,18 +1,9 @@
 import "./NavComponente.css"
-import BotonComponente from "../Botones/BotonComponente.jsx"
 import logo from "../../assets/Ultragame_logo.png"
-import cart from "../../assets/cart.png"
-import Swal from 'sweetalert2'
+import BotonComponente from "../Botones/BotonComponente.jsx"
+import CarritoComponente from "./CarritoComponente.jsx"
 
 export default function NavComponente() {
-const handleClick = () => {
-    Swal.fire({
-        title: "Carrito",
-        text: "Aca estara la sección del carrito",
-        icon: "info"
-    })
-}
-
     return (
         <>
         <div className="navbar">
@@ -26,12 +17,7 @@ const handleClick = () => {
                 <BotonComponente text="Codigos Random" desc="Aca estara la sección de los Codigos Random"/>
                 <BotonComponente text="Soporte" desc="Aca estara la sección de Soporte"/>
             </div>
-            <div className="carrito">
-                <a href="#" onClick={handleClick}>
-                    <img src={cart}/>
-                    <p className="cant-cart">99</p>
-                </a>
-            </div>
+            <CarritoComponente/>
         </div>
         </>
     )
