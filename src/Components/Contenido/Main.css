@@ -5,7 +5,8 @@ h1 {
     margin: 1rem;
 }
 
-.clickme {
+.products{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }

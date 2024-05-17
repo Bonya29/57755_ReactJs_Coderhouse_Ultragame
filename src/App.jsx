@@ -1,12 +1,12 @@
 import './App.css'
-import ContenidoComponente from './Components/Contenido/ContenidoComponente'
-import NavComponente from './Components/Navbar/NavComponente'
+import Main from './Components/Contenido/Main'
+import Navbar from './Components/Navbar/Navbar'
 
 function App() {
   return (
     <>
-    <NavComponente/>
-    <ContenidoComponente/>
+    <Navbar/>
+    <Main/>
     </>
   )
 }

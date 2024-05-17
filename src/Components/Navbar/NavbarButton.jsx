@@ -1,7 +1,7 @@
-import "./BotonComponente.css"
+import "./Navbar.css"
 import Swal from 'sweetalert2'
 
-export default function BotonComponente({text, desc}) {
+export default function NavbarButton({text, desc}) {
     const handleClick = () => {
         Swal.fire({
             title: text,

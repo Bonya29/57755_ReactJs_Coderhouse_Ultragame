@@ -1,8 +1,8 @@
-import "./NavComponente.css"
+import "./Navbar.css"
 import cart from "../../assets/cart.png"
 import Swal from 'sweetalert2'
 
-export default function CarritoComponente() {
+export default function NavbarCart() {
     const handleClick = () => {
         Swal.fire({
             title: "Carrito",
