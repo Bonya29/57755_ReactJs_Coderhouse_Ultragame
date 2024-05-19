@@ -11,8 +11,6 @@ export default function NavbarButton({text, desc}) {
     }
     
     return (
-        <button onClick={handleClick} className="boton">
-            {text}
-        </button>
+        <button onClick={handleClick}>{text}</button>
     )
 }
