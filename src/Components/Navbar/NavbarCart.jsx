@@ -1,22 +1,14 @@
 import "./Navbar.css"
 import cart from "../../assets/cart.png"
-import Swal from 'sweetalert2'
+import { Link } from "react-router-dom"
 
 export default function NavbarCart() {
-    const handleClick = () => {
-        Swal.fire({
-            title: "Carrito",
-            text: "Aca estara la sección del carrito",
-            icon: "info"
-        })
-    }
-
     return (
         <div className="carrito">
-            <a href="#" onClick={handleClick}>
+            <Link to={"/Carrito"}>
                 <img src={cart}/>
                 <p className="cant-cart">99</p>
-            </a>
+            </Link>
         </div>
     )
 }

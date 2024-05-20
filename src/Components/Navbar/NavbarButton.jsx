@@ -1,16 +1,8 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css"
-import Swal from 'sweetalert2'
 
-export default function NavbarButton({text, desc}) {
-    const handleClick = () => {
-        Swal.fire({
-            title: text,
-            text: desc,
-            icon: "info"
-        });
-    }
-    
+export default function NavbarButton({text, linkto}) {
     return (
-        <button onClick={handleClick}>{text}</button>
+        <button ><Link to={linkto}>{text}</Link></button>
     )
 }

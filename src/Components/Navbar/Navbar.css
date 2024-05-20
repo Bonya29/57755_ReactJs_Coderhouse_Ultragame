@@ -19,7 +19,6 @@
     margin-top: 1.35rem;
     margin-left: 1rem;
     button {
-        color: white;
         background-color: #3364be;
         font-size: 1rem;
         height: 50px;
@@ -30,14 +29,20 @@
             background-color: #0095ff;
             cursor: pointer;
         }
+        a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            height: 50px;
+            width: 150px;
+            justify-content: center;
+            align-items: center;
+        }
     }
 } 
 
 .carrito {
     margin: 1.75rem 4rem 0rem auto;
-    a {
-        text-decoration: none;
-    }
 }
 
 .cant-cart {

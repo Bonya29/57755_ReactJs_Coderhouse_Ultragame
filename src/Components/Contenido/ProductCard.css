@@ -1,4 +1,4 @@
-.product-card {
+.product-card, .details-card {
     background-color: #171D25;
     border: 1px solid white;
     width: 460px;
@@ -10,6 +10,20 @@
     }
 }
 
+.details-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    color: white;
+}
+
+.cont-card-details {
+    display: flex;
+    justify-content: center;
+}
+
 .btn-card {
     display: flex;
     flex-direction: row;
@@ -19,6 +33,9 @@
     gap: 2rem;
     border-radius: 1rem;
     border: 0;
+    a {
+        text-decoration: none;
+    }
     button {
         color: white;
         background-color: #3364be;

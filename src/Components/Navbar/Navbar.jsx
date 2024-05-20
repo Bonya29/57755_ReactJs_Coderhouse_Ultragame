@@ -11,11 +11,11 @@ export default function Navbar() {
                 <img src={logo}/>
             </div>
             <div className="btn-nav">
-                <NavbarButton text="Inicio" desc="Esta sera la sección Inicio"/>
-                <NavbarButton text="Juegos" desc="Aca estara la sección de los Juegos"/>
-                <NavbarButton text="Tarjetas de Regalo" desc="Aca estara la sección de las Tarjetas de Regalo"/>
-                <NavbarButton text="Codigos Random" desc="Aca estara la sección de los Codigos Random"/>
-                <NavbarButton text="Soporte" desc="Aca estara la sección de Soporte"/>
+                <NavbarButton linkto="/" text="Inicio"/>
+                <NavbarButton linkto="/Juegos" text="Juegos"/>
+                <NavbarButton linkto="/GiftCard" text="Tarjetas de Regalo"/>
+                <NavbarButton linkto="/RandomKeys" text="Codigos Random"/>
+                <NavbarButton linkto="/Soporte" text="Soporte"/>
             </div>
             <NavbarCart/>
         </div>
