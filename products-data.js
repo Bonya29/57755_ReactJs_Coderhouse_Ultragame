@@ -68,7 +68,7 @@ const products = [
     { 
         id: 7, 
         titulo: "Steam Tarjeta de Regalo USD$5",
-        categoria: "GiftCard",
+        categoria: "GiftCards",
         precio: 5,
         descripcion: "Las tarjetas regalo de Steam funcionan como vales que pueden canjearse para adquirir juegos, software, hardware o cualquier otro artículo disponible en Steam.",
         reseñas: "-",
@@ -79,7 +79,7 @@ const products = [
     { 
         id: 8, 
         titulo: "Steam Tarjeta de Regalo USD$10",
-        categoria: "GiftCard",
+        categoria: "GiftCards",
         precio: 10,
         descripcion: "Las tarjetas regalo de Steam funcionan como vales que pueden canjearse para adquirir juegos, software, hardware o cualquier otro artículo disponible en Steam.",
         reseñas: "-",
@@ -90,7 +90,7 @@ const products = [
     { 
         id: 9, 
         titulo: "Steam Tarjeta de Regalo USD$25",
-        categoria: "GiftCard",
+        categoria: "GiftCards",
         precio: 25,
         descripcion: "Las tarjetas regalo de Steam funcionan como vales que pueden canjearse para adquirir juegos, software, hardware o cualquier otro artículo disponible en Steam.",
         reseñas: "-",
@@ -101,7 +101,7 @@ const products = [
     { 
         id: 10, 
         titulo: "Steam Tarjeta de Regalo USD$50",
-        categoria: "GiftCard",
+        categoria: "GiftCards",
         precio: 50,
         descripcion: "Las tarjetas regalo de Steam funcionan como vales que pueden canjearse para adquirir juegos, software, hardware o cualquier otro artículo disponible en Steam.",
         reseñas: "-",
@@ -163,6 +163,6 @@ export const getProductId = (id) => {
     return products.find((prod) => prod.id == id)
 }
 
-export const getProductCategory = (categoria) => {
-    return products.find((prod) => prod.categoria == categoria)
+export const getProductByCategory = (categoria) => {
+    return products.filter((prod) => prod.categoria === categoria)
 }

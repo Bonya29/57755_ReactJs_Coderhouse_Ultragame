@@ -4,3 +4,28 @@ h1 {
     font-size: 3rem;
     margin: 2rem;
 }
+
+h3 {
+    color: white;
+    text-align: center;
+}
+
+.form-supp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label {
+        color: white;
+        margin: 1.5rem 0rem 0.25rem 0rem;
+    }
+    input, .desc {
+        width: 300px;
+        height: 35px;
+        border-radius: 0.5rem;
+        border: none;
+    }
+    .desc {
+        width: 1000px !important;
+        height: 200px !important;
+    }
+}

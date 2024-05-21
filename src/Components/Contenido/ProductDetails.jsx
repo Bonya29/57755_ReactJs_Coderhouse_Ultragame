@@ -4,6 +4,8 @@ import { getProductId } from "../../../products-data"
 import CardButton from "./CardButton"
 import { Link } from "react-router-dom";
 import "./ProductCard"
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 
 
 export default function ProductDetails() {
@@ -13,6 +15,13 @@ export default function ProductDetails() {
     useEffect(() => {
         setProduct(getProductId(id))
     }, [])
+
+    const handleClick = () => {
+        Toastify({
+            text: "Producto Añadido al Carrito",
+            duration: 2000
+            }).showToast()
+    }
 
     return (
         <>
@@ -27,7 +36,7 @@ export default function ProductDetails() {
                 <h3>${product.precio}.00</h3>
                 <div className="btn-card">
                     <Link to={"/"}><CardButton text={"Volver"}/></Link>
-                    <CardButton text={"Comprar"}/>
+                    <CardButton text={"Comprar"} onClick={handleClick}/>
                 </div>
             </div>
         </div>

@@ -1,13 +1,18 @@
 import "./ProductsView.css"
 import { useState, useEffect } from "react"
-import { getProducts } from "../../../products-data"
+import { getProducts, getProductByCategory } from "../../../products-data"
 import ProductCard from "./ProductCard"
 
-export default function ProductsView() {
+export default function ProductsView({categoria}) {
     const [products, setProducts] = useState([])
+
     useEffect(() => {
-        getProducts.then(data => setProducts(data))
-    }, [])
+        if (categoria) {
+            setProducts(getProductByCategory(categoria))
+        } else {
+            getProducts.then(data => setProducts(data))
+        }
+    }, [categoria])
 
     return (
         <>
