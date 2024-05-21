@@ -31,7 +31,7 @@ export default function ProductDetails() {
                 <h3>{product.titulo}</h3>                
                 <p>{product.descripcion}</p>
                 <h4>Reseñas: {product.reseñas}</h4>
-                <h4>Fecha de Salida: {product.fecha}</h4>
+                <h4>Fecha de Lanzamiento: {product.fecha}</h4>
                 <h4>Desarrollador: {product.desarrollador}</h4>
                 <h3>${product.precio}.00</h3>
                 <div className="btn-card">

@@ -18,7 +18,7 @@ export default function ProductsView({categoria}) {
         <>
         <section className="products">
             {products.map((product) =>
-                <ProductCard imagen={product.imagen} titulo={product.titulo} precio={product.precio} descripcion={product.descripcion} reseñas={product.reseñas} fecha={product.fecha} desarrollador={product.desarrollador} categoria={product.categoria} id={product.id}/>)}
+                <ProductCard imagen={product.imagen} titulo={product.titulo} precio={product.precio} descripcion={product.descripcion} reseñas={product.reseñas} fecha={product.fecha} desarrollador={product.desarrollador} categoria={product.categoria} id={product.id} key={product.id}/>)}
         </section>
         </>
     )
