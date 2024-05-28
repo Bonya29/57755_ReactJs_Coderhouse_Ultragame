@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getProductId } from "../../../products-data"
+import { getProductById } from "../../Firebase/firebase";
 import CardButton from "./CardButton"
 import { Link } from "react-router-dom";
 import "./ProductCard"
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 
-
 export default function ProductDetails() {
     const [product, setProduct] = useState({})
     const {id} = useParams()
 
     useEffect(() => {
-        setProduct(getProductId(id))
-    }, [])
+        getProductById(id).then(data => {setProduct(data)})
+    }, [id])
 
     const handleClick = () => {
         Toastify({
@@ -40,7 +39,6 @@ export default function ProductDetails() {
                 </div>
             </div>
         </div>
-        
         </>
     )
 }

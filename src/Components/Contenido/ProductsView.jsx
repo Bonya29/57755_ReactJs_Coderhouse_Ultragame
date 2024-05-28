@@ -1,16 +1,16 @@
 import "./ProductsView.css"
 import { useState, useEffect } from "react"
-import { getProducts, getProductByCategory } from "../../../products-data"
 import ProductCard from "./ProductCard"
+import { getProducts, getProductByCategory } from "../../Firebase/firebase"
 
 export default function ProductsView({categoria}) {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
         if (categoria) {
-            setProducts(getProductByCategory(categoria))
+            getProductByCategory(categoria).then(data => setProducts(data))
         } else {
-            getProducts.then(data => setProducts(data))
+            getProducts().then(data => setProducts(data))
         }
     }, [categoria])
 
