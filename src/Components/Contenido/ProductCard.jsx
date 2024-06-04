@@ -1,15 +1,15 @@
+import { useContext } from "react"
 import CardButton from "./CardButton"
 import "./ProductCard.css"
 import { Link } from "react-router-dom"
-import Toastify from 'toastify-js'
-import "toastify-js/src/toastify.css"
+import { CartContext } from "../../Context/CartContext"
 
 export default function ProductCard({imagen, titulo, precio, categoria, id}) {
+    const {addCart} = useContext(CartContext)
+
     const handleClick = () => {
-        Toastify({
-            text: "Producto Añadido al Carrito",
-            duration: 2000
-            }).showToast()
+        const productToAdd = { imagen, titulo, precio, categoria, id }
+        addCart(productToAdd)
     }
 
     return (

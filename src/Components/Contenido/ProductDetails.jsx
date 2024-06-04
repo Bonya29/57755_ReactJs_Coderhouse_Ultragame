@@ -4,22 +4,21 @@ import { getProductById } from "../../Firebase/firebase";
 import CardButton from "./CardButton"
 import { Link } from "react-router-dom";
 import "./ProductCard"
-import Toastify from 'toastify-js'
-import "toastify-js/src/toastify.css"
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext"
 
 export default function ProductDetails() {
     const [product, setProduct] = useState({})
     const {id} = useParams()
+    const {addCart} = useContext(CartContext)
 
     useEffect(() => {
         getProductById(id).then(data => {setProduct(data)})
     }, [id])
 
     const handleClick = () => {
-        Toastify({
-            text: "Producto Añadido al Carrito",
-            duration: 2000
-            }).showToast()
+        const productToAdd = { imagen: product.imagen, titulo: product.titulo, precio: product.precio, categoria: product.categoria, id: product.id }
+        addCart(productToAdd)
     }
 
     return (

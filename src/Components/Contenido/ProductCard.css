@@ -3,10 +3,15 @@
     border: 1px solid white;
     width: 460px;
     margin: 5rem;
+    border-radius: 12px;
     h2{
         color: white;
         margin-top: 1rem;
         text-align: center;
+    }
+    img {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px
     }
 }
 

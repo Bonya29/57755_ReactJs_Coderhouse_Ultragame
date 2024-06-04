@@ -20,7 +20,7 @@ export default function Soporte() {
         <div>
             <h1>Soporte</h1>
             <h3>¿Tuviste algun problema con alguna compra, tienes dudas, o simplemente quieres contactarnos?<br/>Escribenos por aqui</h3>
-            <div className="form-supp"> 
+            <div className="form"> 
                 <label>Email</label>
                 <input type="Email"/>
                 <label>Razon / Problema</label>
