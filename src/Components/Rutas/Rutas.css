@@ -44,13 +44,14 @@ h3 {
     .desc {
         width: 1000px !important;
         height: 200px !important;
+        font-size: 1rem;
     }
     h3 {
         margin-top: 1rem;
     }
 }
 
-.datos-envio, .met-pago {
+.form-cont {
     width: 632px;
     display: flex;
     flex-wrap: wrap;
@@ -59,6 +60,9 @@ h3 {
     label {
         padding-left: 0.25rem;
         margin-top: 1rem;
+    }
+    input {
+        font-size: 1rem;
     }
 }
 

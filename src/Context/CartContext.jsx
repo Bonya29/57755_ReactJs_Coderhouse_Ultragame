@@ -14,6 +14,19 @@ export function CartProvider({children}) {
         setAcumulador(0)
     }
 
+    const removeProductCart = (id) => {
+        const updatedProducts = products.filter((product) => product.id !== id)
+        setProducts(updatedProducts)
+        const precioTotal = updatedProducts.reduce((total, product) => total + product.precio, 0)
+        setTotal(precioTotal)
+        const acum = acumulador - 1
+        setAcumulador(acum)
+        Toastify({
+            text: "Producto Eliminado",
+            duration: 2000
+            }).showToast()
+    }
+
     const addCart = (product) => {
         const inCart = products.some((i) => i.id === product.id)
         if (inCart) {
@@ -37,7 +50,7 @@ export function CartProvider({children}) {
     }
 
     return (
-        <CartContext.Provider value = {{ products, clearCart, addCart, acumulador, total}}>
+        <CartContext.Provider value = {{ products, clearCart, removeProductCart, addCart, acumulador, total}}>
             {children}
         </CartContext.Provider>
     )
