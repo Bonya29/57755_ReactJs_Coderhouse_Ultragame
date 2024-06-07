@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import {getFirestore, getDocs, collection, query, where, doc, getDoc} from "firebase/firestore"
+import {getFirestore, getDocs, collection, query, where, doc, getDoc, addDoc} from "firebase/firestore"
 
 const firebaseConfig = {
     apiKey: "AIzaSyA9chjo_hDDKWJ2A00Hgxx-lghUC7U4UPw",
@@ -37,4 +37,14 @@ export function getProductById(id) {
     return getDoc(productRef).then(productData => {
         return { id: productData.id, ...productData.data() }
     })
+}
+
+export function addOrder(order) {
+    const ordersCollection = collection(db, "orders")
+    return addDoc(ordersCollection, order).then(docRef => docRef.id)
+}
+
+export function addRequest(request) {
+    const requestsCollection = collection(db, "requests")
+    return addDoc(requestsCollection, request).then(docRef => docRef.id)
 }

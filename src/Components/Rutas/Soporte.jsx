@@ -2,13 +2,17 @@ import CardButton from "../Contenido/CardButton"
 import "./Rutas.css"
 import "../Contenido/ProductCard.css"
 import Swal from "sweetalert2"
+import { addRequest } from "../../Firebase/firebase"
+import { useState } from "react"
 
 export default function Soporte() {
+    const [requestId, setRequestId] = useState(null)
+
     const handleClick = () => {
         const sopFullname = document.getElementById("sop-fullname").value
         const sopEmail = document.getElementById("sop-email").value
         const sopReason = document.getElementById("sop-reason").value
-        const sopId = document.getElementById("sop-id").value
+        const sopId = document.getElementById("sop-id").value || null
         const sopDesc = document.getElementById("sop-desc").value
         if (!sopFullname || !sopEmail || !sopReason || !sopDesc) {
             Swal.fire({
@@ -17,14 +21,25 @@ export default function Soporte() {
                 icon: "warning"
             })
         } else {
-            Swal.fire({
-                title: "Solicitud Enviada",
-                text: "En los proximos 7 dias te estaremos respondiendo al mail indicado.",
-                icon: "success"
+            const createRequest = {
+                solicitante: {fullname: sopFullname, email: sopEmail},
+                razon: sopReason,
+                idCompra: sopId,
+                descripcion: sopDesc,
+                fecha: new Date()
+            }
+            addRequest(createRequest).then((id) => {
+                setRequestId(id)
+                Swal.fire({
+                    title: "Solicitud Enviada",
+                    text: "En los proximos 7 dias te estaremos respondiendo al mail indicado. ID de la solicitud: " + id,
+                    icon: "success"
+                })
+                .then(() => {
+                    location.reload()
+                })
             })
-            .then(() => {
-                location.reload()
-            })
+            
         }
     }
 

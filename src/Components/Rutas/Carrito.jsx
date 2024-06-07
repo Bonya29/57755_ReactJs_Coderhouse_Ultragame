@@ -1,12 +1,14 @@
 import "./Rutas.css"
 import CardButton from "../Contenido/CardButton"
 import Swal from "sweetalert2"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../../Context/CartContext"
 import CartCard from "../Contenido/CartCard"
+import { addOrder } from "../../Firebase/firebase"
 
 export default function Carrito() {
     const {products, total} = useContext(CartContext)
+    const [orderId, setOrderId] = useState(null)
 
     const handleClick = () => {
         const comFullname = document.getElementById("com-fullname").value
@@ -37,14 +39,24 @@ export default function Carrito() {
                 icon: "error"
             })
         } else {
-            Swal.fire({
-                title: "Orden Generada Exitosamente",
-                text: "En las proximas 72hs estaras recibiendo el codigo de tus productos por el email indicado. Guarda el ID de la orden por si experimentas problemas en el futuro. ID:",
-                icon: "success"
+            const createOrder = {
+                comprador: {fullname: comFullname, email: comEmail, steamPais: comCountry, steamURL: comURL},
+                productos: products.map(({imagen, ...rest}) => rest),
+                total: {total},
+                fecha: new Date()
+            }
+            addOrder(createOrder).then((id) => {
+                setOrderId(id)
+                Swal.fire({
+                    title: "Orden Generada Exitosamente",
+                    text: "En las proximas 72hs estaras recibiendo el codigo de tus productos por el email indicado. ID de la orden: " + id,
+                    icon: "success"
+                })
+                .then(() => {
+                    location.reload()
+                })
             })
-            .then(() => {
-                location.reload()
-            })
+            
         }
     }
 
